@@ -7,8 +7,10 @@ from config import *
 
 app = Flask(__name__)
 db = DataBase(CONFIG)
+
+
 # API DE LOGIN
-@app.route("/login", methods=['POST'])
+@app.route("/logar", methods=['POST'])
 def login():
     usuario = request.get_json()
     if autenticaUsuario(usuario, db):
@@ -18,25 +20,27 @@ def login():
     else:
         return jsonify({'sucess': False})
 
+
 # API PARA RECUPERAR AS FECHADURAS DE UMA CONTA
-@app.route("/listaFechadura", methods=['POST'])
+@app.route("/listarFechadura", methods=['POST'])
 def listaFechadura():
     usuario = request.get_json()
     usuario = toText(usuario)
     if autenticaToken(usuario, db):
-        lista = listaFechadura(usuario,db)
+        lista = [] #listarFechadura(usuario,db)
         return jsonify({'sucess': True, 'fechaduras' : lista})
     else:
         return jsonify({'sucess': False})
 
+
 # API PARA CADASTRAR UM NOVO USUARIO
-@app.route("/cadastro", methods=['POST'])
-def listaFechadura():
+@app.route("/cadastrar", methods=['POST'])
+def cadastrar():
     usuario = request.get_json()
     #implementar
     
 
-@app.route("/abreFechadura", methods=['POST'])
+@app.route("/abrirFechadura", methods=['POST'])
 def abreFechadura():
     usuario = request.get_json()
     usuario = toText(usuario)
@@ -47,7 +51,7 @@ def abreFechadura():
         return jsonify({'sucess': False})
 
 
-@app.route("/fechaFechadura", methods=['POST'])
+@app.route("/fecharFechadura", methods=['POST'])
 def fechaFechadura():
     usuario = request.get_json()
     usuario = toText(usuario)
@@ -58,7 +62,7 @@ def fechaFechadura():
         return jsonify({'sucess': False})
 
 
-@app.route("/notificacao", methods=['POST'])
+@app.route("/notificacar", methods=['POST'])
 def notificacao():
     usuario = request.get_json()
     usuario = toText(usuario)
