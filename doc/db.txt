@@ -1,0 +1,21 @@
+CREATE TABLE tb_fechadura (
+	codigo INT PRIMARY KEY,
+    nome VARCHAR (50),
+	status1 VARCHAR (50),
+	status2 VARCHAR (50),
+
+);
+
+CREATE TABLE tb_pertence (
+    id SERIAL PRIMARY KEY,
+    codigo_fechadura INT,
+    dono VARCHAR (50),
+    FOREIGN KEY (codigo_fechadura) REFERENCES tb_fechadura (codigo),
+    FOREIGN KEY (dono) REFERENCES tb_usuario (usuario)
+);
+
+INSERT INTO tb_fechadura(codigo, nome, status1, status2)
+VALUES (1234, 'casa', 'fechado','fechado');
+
+INSERT INTO tb_pertence(codigo_fechadura, dono)
+VALUES (1234, 'Leonardo');

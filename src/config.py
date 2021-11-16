@@ -1,5 +1,5 @@
 CONFIG = {
-    'API_KEY' : 1234567890,
+    'API_KEY' : 2,
     'DATABASE' : {
         'dbname':'db_fe',
         'user':'leonardo', 

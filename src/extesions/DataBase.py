@@ -23,21 +23,21 @@ class DataBase():
 
     def update(self, sqlstr):
         try: 
-            cur = self.con.cursor()
+            cur = self.conn.cursor()
             cur.execute(sqlstr)
-            self.con.commit()
+            self.conn.commit()
             cur.close()
         except Exception as Erro:
             raise "ERRO UPDATE: " + Erro
 
     def insert(self, sqlstr):
         try: 
-            cur = self.con.cursor()
+            cur = self.conn.cursor()
             cur.execute(sqlstr)
-            self.con.commit()
+            self.conn.commit()
             cur.close()
         except Exception as Erro:
-            raise "ERRO INSERT: " + Erro
+            raise "ERRO UPDATE: " + Erro
 
 
 
